@@ -41,8 +41,9 @@
 					</div>
 				</div>
 				<div class="col s6">
-					<div class="content-right">
-						<a href="#slide-out" data-activates="slide-out" class="sidebar"><i class="fas fa-bars"></i></a>
+					<div class="content-right" id="fullscreen" style="cursor:pointer">
+						<i class="fas fa-expand"></i>
+						<p style="display:inline-block; padding-right: 20px;">FullScreen</p>
 					</div>
 				</div>
 			</div>
@@ -147,6 +148,27 @@
 	<script src="js/materialize.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+
+	<script>
+		document.querySelector("#fullscreen").addEventListener("click", function () {
+			const elem = document.documentElement; // Misalnya, elemen <html> utama
+
+			function enterFullscreen() {
+				if (elem.requestFullscreen) {
+					elem.requestFullscreen();
+				} else if (elem.mozRequestFullScreen) { // Untuk Firefox
+					elem.mozRequestFullScreen();
+				} else if (elem.webkitRequestFullscreen) { // Untuk Chrome, Safari, dan Opera
+					elem.webkitRequestFullscreen();
+				} else if (elem.msRequestFullscreen) { // Untuk Internet Explorer
+					elem.msRequestFullscreen();
+				}
+			}
+			enterFullscreen();
+		})
+
+		// Memasuki mode full screen secara otomatis saat halaman dimuat
+	</script>
 
 </body>
 

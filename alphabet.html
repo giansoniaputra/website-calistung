@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
 	<link rel="stylesheet" href="css/style.css">
+
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	<style>
 		.features .content img {
@@ -52,8 +53,9 @@
 					</div>
 				</div>
 				<div class="col s6">
-					<div class="content-right">
-						<a href="#slide-out" data-activates="slide-out" class="sidebar"><i class="fas fa-bars"></i></a>
+					<div class="content-right" id="fullscreen" style="cursor:pointer">
+						<i class="fas fa-expand"></i>
+						<p style="display:inline-block; padding-right: 20px;">FullScreen</p>
 					</div>
 				</div>
 			</div>
@@ -302,7 +304,26 @@
 	</div>
 	<audio id="suara"></audio>
 	<!-- end features -->
+	<script>
+		document.querySelector("#fullscreen").addEventListener("click", function () {
+			const elem = document.documentElement; // Misalnya, elemen <html> utama
 
+			function enterFullscreen() {
+				if (elem.requestFullscreen) {
+					elem.requestFullscreen();
+				} else if (elem.mozRequestFullScreen) { // Untuk Firefox
+					elem.mozRequestFullScreen();
+				} else if (elem.webkitRequestFullscreen) { // Untuk Chrome, Safari, dan Opera
+					elem.webkitRequestFullscreen();
+				} else if (elem.msRequestFullscreen) { // Untuk Internet Explorer
+					elem.msRequestFullscreen();
+				}
+			}
+			enterFullscreen();
+		})
+
+		// Memasuki mode full screen secara otomatis saat halaman dimuat
+	</script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/materialize.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
